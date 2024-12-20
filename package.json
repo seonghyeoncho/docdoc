@@ -1,0 +1,16 @@
+{
+	"name": "docdoc-app",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev:web": "pnpm --filter web dev",
+		"dev:docdoc": "wait-on http://localhost:5173 && pnpm --filter docdoc dev",
+		"dev": "concurrently \"pnpm run dev:web\" \"pnpm run dev:docdoc\"",
+		"build": "pnpm --filter web build && pnpm --filter docdoc build"
+	},
+	"devDependencies": {
+		"concurrently": "9.1.0",
+		"wait-on": "8.0.1"
+	}
+}
